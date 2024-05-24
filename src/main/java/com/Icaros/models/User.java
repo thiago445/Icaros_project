@@ -24,11 +24,7 @@ public class User {
 	
 	@Column(name= "NOME")
 	private String name;
-	
-	
-	@Column(name= "SOBRENOME")
-	private String surname;
-	
+
 	
 	@Column(name= "EMAIL",nullable = false, unique = true)
 	private String email;
@@ -65,12 +61,11 @@ public class User {
 	
 	
 
-	public User(Long id, String name, String surname, String email, String password, Gender gender,
+	public User(Long id, String name, String email, String password, Gender gender,
 			String flagTipoUsuario, Date birthDate) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.surname = surname;
 		this.email = email;
 		this.password = password;
 		this.gender = gender;
@@ -97,13 +92,6 @@ public class User {
 		this.name = name;
 	}
 
-	public String getSurname() {
-		return surname;
-	}
-
-	public void setSobrenome(String surname) {
-		this.surname = surname;
-	}
 
 	public String getEmail() {
 		return email;
@@ -156,7 +144,7 @@ public class User {
 	//HASCODE END EQUALS
 	@Override
 	public int hashCode() {
-		return Objects.hash(birthDate, email, flagTipoUsuario, gender, id, login, name, password, surname);
+		return Objects.hash(birthDate, email, flagTipoUsuario, gender, id, login, name, password);
 	}
 
 	
@@ -172,8 +160,7 @@ public class User {
 		return Objects.equals(birthDate, other.birthDate) && Objects.equals(email, other.email)
 				&& Objects.equals(flagTipoUsuario, other.flagTipoUsuario) && gender == other.gender
 				&& Objects.equals(id, other.id) && Objects.equals(login, other.login)
-				&& Objects.equals(name, other.name) && Objects.equals(password, other.password)
-				&& Objects.equals(surname, other.surname);
+				&& Objects.equals(name, other.name) && Objects.equals(password, other.password);
 	}
 	
 	

@@ -1,11 +1,16 @@
 package com.Icaros.models;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -30,5 +35,31 @@ public class Profile {
 	@OneToOne
 	@JoinColumn(name = "ID_MUSICO", referencedColumnName = "ID_MUSICO") //A LIGAÇÃO É COM O ID MUSICO
 	private UserMusician userMusician;
+	
+	//RELAÇÃO DE MUITOS PARA MUITOS NA TABELA PORTIFOLIO E PRODUTOR
+	@ManyToMany
+	@JoinTable(
+	    name = "tb_portifolio_produtor",
+	    joinColumns = @JoinColumn(name = "ID_PORTIFOLIO"),
+	    inverseJoinColumns = @JoinColumn(name = "ID_produtor")
+	)
+	private Set<ProducerUser> producerUser = new HashSet<>();
+	
+	//RELAÇÃO DE MUITOS PARA MUITOS NA TABELA USUARIOMUSICO E PORTIFOLIO
+	
+	@ManyToMany
+	@JoinTable(
+	    name = "tb_usuarioam_portifolio",
+	    joinColumns = @JoinColumn(name = "ID_PORTIFOLIO"),
+	    inverseJoinColumns = @JoinColumn(name = "ID_AMANTE_MUSICA")
+	)
+	private Set<UserLover> userLover = new HashSet<>();
+
+	public Profile() {
+	}
+	
+	
+	
+	
 	
 }

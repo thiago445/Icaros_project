@@ -2,7 +2,9 @@ package com.Icaros.models;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,6 +12,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -37,6 +41,26 @@ public class Events {
 	@ManyToOne
 	@JoinColumn(name = "ID_PRODUTOR", referencedColumnName = "ID_PRODUTOR")
 	private ProducerUser producerUser;
+	
+	//RELAÇÃO MUITO PARA MUITO NA TABELA EVENTOS E MUSICO
+	@ManyToMany
+	@JoinTable(
+	    name = "tb_evento_musico",
+	    joinColumns = @JoinColumn(name = "ID_EVENTO"),
+	    inverseJoinColumns = @JoinColumn(name = "ID_MUSICO")
+	)
+	private Set<UserMusician> userMusician = new HashSet<>();
+	
+	//RELAÇÃO MUITOS PARA MUITOS NA TABELA USUARIOAM EVENTOS
+	
+	@ManyToMany
+	@JoinTable(
+	    name = "tb_usuarioam_eventos",
+	    joinColumns = @JoinColumn(name = "ID_EVENTO"),
+	    inverseJoinColumns = @JoinColumn(name = "ID_AMANTE_MUSICA")
+	)
+	private Set<UserLover> userLover = new HashSet<>();
+	
 	
 	public Events() {}
 
