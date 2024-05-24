@@ -1,0 +1,44 @@
+	//RELAÇÃO DE MUITOS PARA MUITOS NA TABELA PORTIFOLIO E PRODUTOR
+	@ManyToMany
+	@JoinTable(
+	    name = "tb_portifolio_produtor",
+	    joinColumns = @JoinColumn(name = "ID_PORTIFOLIO"),
+	    inverseJoinColumns = @JoinColumn(name = "ID_produtor")
+	)
+	private Set<ProducerUser> producerUser = new HashSet<>();
+
+
+
+	//RELAÇÃO DE MUITOS PARA MUITOS NA TABELA USUARIOMUSICO E PORTIFOLIO
+	
+	@ManyToMany
+	@JoinTable(
+	    name = "tb_usuarioam_portifolio",
+	    joinColumns = @JoinColumn(name = "ID_PORTIFOLIO"),
+	    inverseJoinColumns = @JoinColumn(name = "ID_AMANTE_MUSICA")
+	)
+	private Set<UserLover> userLover = new HashSet<>();
+
+
+
+	//RELAÇÃO MUITO PARA MUITO NA TABELA EVENTOS E MUSICO
+	@ManyToMany
+	@JoinTable(
+	    name = "tb_evento_musico",
+	    joinColumns = @JoinColumn(name = "ID_EVENTO"),
+	    inverseJoinColumns = @JoinColumn(name = "ID_MUSICO")
+	)
+	private Set<UserMusician> userMusician = new HashSet<>();
+
+
+
+	//RELAÇÃO MUITOS PARA MUITOS NA TABELA USUARIOAM EVENTOS
+	
+	@ManyToMany
+	@JoinTable(
+	    name = "tb_usuarioam_eventos",
+	    joinColumns = @JoinColumn(name = "ID_EVENTO"),
+	    inverseJoinColumns = @JoinColumn(name = "ID_AMANTE_MUSICA")
+	)
+	private Set<UserLover> userLover = new HashSet<>();
+	

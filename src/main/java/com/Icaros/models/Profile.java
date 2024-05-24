@@ -36,14 +36,7 @@ public class Profile {
 	@JoinColumn(name = "ID_MUSICO", referencedColumnName = "ID_MUSICO") //A LIGAÇÃO É COM O ID MUSICO
 	private UserMusician userMusician;
 	
-	//RELAÇÃO DE MUITOS PARA MUITOS NA TABELA PORTIFOLIO E PRODUTOR
-	@ManyToMany
-	@JoinTable(
-	    name = "tb_portifolio_produtor",
-	    joinColumns = @JoinColumn(name = "ID_PORTIFOLIO"),
-	    inverseJoinColumns = @JoinColumn(name = "ID_produtor")
-	)
-	private Set<ProducerUser> producerUser = new HashSet<>();
+
 	
 	//RELAÇÃO DE MUITOS PARA MUITOS NA TABELA USUARIOMUSICO E PORTIFOLIO
 	
