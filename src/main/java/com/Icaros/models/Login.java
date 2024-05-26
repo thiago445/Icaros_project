@@ -77,6 +77,7 @@ public class Login {
 		this.user = user;
 	}
 
+	// hashCode and equals
 	@Override
 	public int hashCode() {
 		return Objects.hash(email, id, password, user);

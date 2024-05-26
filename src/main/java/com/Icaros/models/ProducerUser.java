@@ -34,11 +34,11 @@ public class ProducerUser {
 	
 	
 	//Constructor
-	public ProducerUser(Long id, String cnpj, String fantasynName, User user) {
+	public ProducerUser(Long id, String cnpj, String fantasyName, User user) {
 		super();
 		this.id = id;
 		this.cnpj = cnpj;
-		this.fantasyName = fantasynName;
+		this.fantasyName = fantasyName;
 		this.user = user;
 	}
 
@@ -64,13 +64,13 @@ public class ProducerUser {
 	}
 
 
-	public String getFantasynName() {
+	public String getFantasyName() {
 		return fantasyName;
 	}
 
 
-	public void setFantasynName(String fantasynName) {
-		this.fantasyName = fantasynName;
+	public void setFantasynName(String fantasyName) {
+		this.fantasyName = fantasyName;
 	}
 
 

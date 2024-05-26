@@ -23,6 +23,9 @@ public class UserLover {
 	@Column(name = "CPF")
 	private String cpf;
 	
+	@Column(name = "NOME")
+	private String name;
+	
 	@JoinColumn(name = "ID_USUARIO", referencedColumnName = "ID_USUARIO")
 	@OneToOne
 	private User user;
@@ -39,9 +42,18 @@ public class UserLover {
 	}
 	
 	//Getters in Setters
+	
 
 	public Long getId() {
 		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public void setId(Long id) {
@@ -68,7 +80,7 @@ public class UserLover {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(cpf, id, user);
+		return Objects.hash(cpf, id, name, user);
 	}
 
 	@Override
@@ -80,7 +92,8 @@ public class UserLover {
 		if (getClass() != obj.getClass())
 			return false;
 		UserLover other = (UserLover) obj;
-		return Objects.equals(cpf, other.cpf) && Objects.equals(id, other.id) && Objects.equals(user, other.user);
+		return Objects.equals(cpf, other.cpf) && Objects.equals(id, other.id) && Objects.equals(name, other.name)
+				&& Objects.equals(user, other.user);
 	}
 	
 	
