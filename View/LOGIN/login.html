@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="../ARCHIVES/image/Icaros-branco.png">
+    <link href="./styl-login.css" rel="stylesheet" type="text/css">
+    <title img="Icaros-branco">login</title>
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById("senha");
+            var passwordToggle = document.getElementById("toggleSenha");
+            
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                passwordToggle.textContent = "Esconder Senha";
+            } else {
+                passwordField.type = "password";
+                passwordToggle.textContent = "Mostrar Senha";
+            }
+        }
+        </script>
+</head>
+<body>      
+    <div class="main-login">
+        <div class="left-login">
+            <a href="../index.html"><img src="../ARCHIVES/image/Icaros-branco.png" class="left-login-image"></a>
+            <h1>Desperte e voe até o Sol,</h1>
+            <h1>venha fazer parte.</h1>
+        </div>
+        <div class="right-login">
+            <div class="card-login">
+                <h1>LOGIN</h1>
+                <form method="get" action="">
+                    <div class="text-field">
+                        <input type="email" name="email" id="#email" placeholder="Email" required title="Digite seu email">
+                    </div>
+                    <div class="text-field">
+                      <input type="password" name="pswd" id="senha" placeholder="Password" required title="Digite sua senha">
+                        <a class="pswd-bttn" type="button" id="toggleSenha" onclick="togglePasswordVisibility()">Mostrar Senha</a>
+                    </div>
+                    <div class="card-bttn">
+                        <input class="bttn-login" type="submit" value="Login">
+                    </form>
+                        <a class="bttn-signin" href="../SIGN IN/SIGNIN.html">Cadastre-se</a>
+                    </div>
+            </div>
+        </div>
+    
+</body>
+</html>

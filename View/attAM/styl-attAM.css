@@ -1,0 +1,167 @@
+@import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
+
+body{
+    flex-direction: column;
+    font-family: 'roboto', sans-serif;
+    background-color: #0f0f0f;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+.cabecalho {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1f1f1f;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.cabecalho img {
+    width: 3vw;
+    height: auto;
+    margin-right: 10px;
+}
+
+.cabecalho p {
+    font-weight: 700;
+    color: #f9f9f9;
+}
+.icaros-home{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+.icaros-home img{
+    width: 10vw;
+    height: 20vh;
+    cursor: pointer;
+}
+.nav-bar{
+    align-self: center;
+    margin-bottom: 20px;
+    display: flex;
+}
+.bttn-perfil{
+    padding: 10px;
+    color: #9f9f9f;
+    text-decoration: none;
+    background-color: #1f1f1f;
+    margin-bottom: 5px;
+    border-radius: 12px;
+}
+.att-perfil{
+    align-items: center;
+    width: 30%;
+    height: auto;
+    align-self: center;
+}
+.form-perfil{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #1f1f1f;
+    width: 100%;
+    height: auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 10px 40px #000;
+}
+.form-perfil label{
+    color: #f0f0f0;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.form-perfil input[type="file"]{
+    width: 20vw;
+}
+.form-perfil select{
+    outline: none;
+    align-self: center;
+    height: 100%;
+    width: 30%;
+    color: #f0f0f0;
+    background-color: #2f2f2f;
+    border-radius: 5px;
+    text-align: center;
+}
+.form-perfil option{
+    color: #f0f0f0;
+    font-family: 'roboto', sans-serif;
+    border-radius: 5px;
+}
+.form-perfil input{
+    align-self: center;
+    width: 90%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #f0f0f0;
+    background-color: #2f2f2f;
+}
+.form-perfil textarea{
+    height: 20vh;
+    resize: none;
+    border-radius: 5px;
+    align-self: center;
+    color: #f0f0f0;
+    background-color: #2f2f2f;
+    width: 90%;
+}
+.form-perfil input[type="submit"] {
+    margin-top: 15px;
+    font-weight: 800;
+    background-color: #0f0f0f;
+    color: #f0f0f0;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

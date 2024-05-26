@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+body *{
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0f0f0f;
+}
+.cabecalho {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1f1f1f;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.cabecalho img {
+    width: 3vw;
+    height: auto;
+    margin-right: 10px;
+}
+
+.cabecalho p {
+    font-weight: 700;
+    color: #f9f9f9;
+}
+.perfil{
+    margin-top: 3%;
+    width: 50vw;
+    height: auto;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 1%;
+    background-color: #1f1f1f;
+    box-shadow: 0px 0px 5px 5px #00000050;
+}
+.foto-bttns{
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.foto{
+    display: flex;
+    padding: 10px;
+    margin-right: 50%;
+    border-radius: 20px;
+    background-color: #2f2f2f;
+}
+.foto img{
+    width: 11vw;
+    height: 20vh;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px #00000090;
+}
+.home-att{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.home img{
+    height: auto;
+    width: 5vw;
+}
+.att{
+    width: 7vw;
+    justify-content: center;
+    align-items: center;
+}
+.att a{
+    display: flex;
+    font-weight: 900;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: #f9f9f9;
+    border: 2px solid #f9f9f9;
+    border-radius: 15px;
+}
+.nome-email{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.nome{
+    display: flex;
+    width: 10vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.email{
+    width: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.estilo{
+    width: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.nome-email label{
+    display: flex;
+    padding: 5px;
+    border-radius: 10px;
+    font-weight: 900;
+    color: #f9f9f9;
+}
+.nome-email p{
+    display: flex;
+    padding: 5px;
+    border-radius: 10px;
+    font-weight: 900;
+    color: #f9f9f9;
+}
+.descricao{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1%;
+}
+.descricao label{
+    display: flex;
+    font-weight: 900;
+    color: #f9f9f9;
+}
+.descricao p{
+    display: flex;
+    font-weight: 900;
+    color: #f9f9f9;
+}
+.evento{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.evento label{
+    display: flex;
+    margin-bottom: 3%;
+    font-weight: 900;
+    color: #f9f9f9;
+}
+.evento p{
+    display: flex;
+    margin-bottom: 3%;
+    font-weight: 900;
+    color: #f9f9f9;
+}
+.evento-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 2%;
+}
+.local{
+    display: flex;
+    width: 10vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.data{
+    display: flex;
+    width: 10vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.hora{
+    display: flex;
+    width: 10vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.midia{
+    display: flex;
+    width: 10vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.propaganda{
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #2f2f2f;
+}
+.propaganda img{
+    width: 11vw;
+    height: 20vh;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px #00000090;
+}

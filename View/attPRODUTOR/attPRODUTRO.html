@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualização de perfil - Produtor</title>
+    <link rel="stylesheet" href="../attPRODUTOR/styl-attPRODUTOR.css">
+    <link rel="icon" href="/ARCHIVES/image/Icaros-branco.png" type="image/x-icon" >    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const userId = 1; // ID do usuário que você deseja carregar
+            
+            fetch(`/usuario/${userId}`)
+              .then(response => response.json())
+              .then(data => {
+                const usuario = data[0]; // Supondo que apenas um usuário seja retornado
+                document.getElementById('foto').value = usuario.foto;
+                document.getElementById('nome').value = usuario.nome;
+                document.getElementById('email').value = usuario.email;
+                document.getElementById('apresentacao').value = usuario.apresentacao;
+                document.getElementById('descricao').value = usuario.descricao;
+              })
+              .catch(error => console.error('Erro ao carregar usuário:', error));
+    
+            function atualizarPerfil(event) {
+                event.preventDefault(); // Impede o envio do formulário
+                
+                const formData = new FormData(event.target);
+                // Aqui você pode adicionar a lógica para enviar os dados do formulário para o backend
+                for (let pair of formData.entries()) {
+                    console.log(pair[0] + ': ' + pair[1]);
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="cabecalho">
+        <a href="../index.html"><img src="/ARCHIVES/image/Icaros-branco.png"></a>
+        <p>Bem-vindo(a) ao site!</p>
+    </div>
+    <div class="nav-bar">
+        <div class="nav-bttn">
+            <a class="bttn-perfil" href="../portPRODUTOR/portifolio-produtor.html">Voltar ao Perfil</a>
+        </div>
+    </div>
+    <div class="att-perfil">
+        <form class="form-perfil" id="perfilForm" method="PUT" onsubmit="atualizarPerfil(event)">
+            <input type="hidden" id="userId" name="userId" value="1">
+                <label for="foto">Foto de Perfil:</label>
+                <input type="file" id="foto" name="foto" accept="image/*">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="opcoes">Genero musical:</label>
+                        <select id="opcoes" onchange="mostrarOpcao()">
+                        <option value="">Selecione...</option>
+                        <option value="funk" id="">FUNK</option>
+                        <option value="mpb" id="">MPB</option>
+                        <option value="rock" id="">ROCK</option>
+                        <option value="sertanejo" id="">SERTANEJO</option>
+                        <option value="gospel" id="">GOSPEL</option>
+                        <option value="hiphop" id="">HIPHOP</option>
+                        </select>
+                <label for="Evento">Evento:</label>
+                <div class="info-evento">
+                    <label>Midia</label>
+                    <input type="file" id="img-evento" name="img-evento" accept="image/*" required>
+                    <label>Data e hora</label>
+                    <div class="data-hora">
+                        <input type="date" required title="Data do evento">
+                        <input type="time" required title="Hora do evento">
+                    </div>
+                    <label>Local</label>
+                    <input type="text" for="local" name="local" required title="Digite o local do evento" placeholder="Digite o local do evento...">
+                    <label>Descricao</label>
+                    <textarea id="descricao" name="descricao" placeholder="Descreva aqui o evento..." required title="Descreva aqui o evento"></textarea>
+                </div>
+                <label for="descricao">Meu perfil:</label>
+                <textarea id="descricao" name="descricao" required title="Descreva um resumo sobre voce" placeholder="Descreva um resumo sobre voce..."></textarea>
+                <input type="submit" value="Atualizar Perfil">
+        </form>
+    </div>
+</body>
+</html>
