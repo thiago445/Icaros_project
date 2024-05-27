@@ -12,43 +12,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 gender: document.getElementById('gender').value,
                 flagTipoUsuario: document.getElementById('flagTipoUsuario').value
             };
-
-            let specificUserKey = '';
-            
-            let specificUser = {};
-            const userType = user.flagTipoUsuario;
-
-            if (userType === 'AM') {
-                specificUser = {
-                    cpf: document.getElementById('cpf').value,
-                    name: document.getElementById('name').value
-                     // Assuming same name as user
-                };
-                specificUserKey = 'userLover';
-            } else if (userType === 'musico') {
-                specificUser = {
-                    cpf: document.getElementById('cpf').value
-                };
-            } else if (userType === 'produtor') {
-                specificUser = {
-                    cnpj: document.getElementById('cnpj').value
-                };
-            }
-
+            const userLover = {
+                cpf: document.getElementById('cpf').value,
+                name: document.getElementById('name').value // Assuming same name as user
+            };
             const payload = {
-                user: user
+                user: user,
+                userLover: userLover
             };
 
-            payload[specificUserKey] = specificUser;
+            console.log('User data being sent:', user);
 
-            console.log('Payload being sent:', payload);
-
-            fetch('http://localhost:8080/user/tipe', {
+            fetch('http://localhost:8080/user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(payload)
+                body: JSON.stringify(user)
             })
             .then(response => {
                 if (!response.ok) {
