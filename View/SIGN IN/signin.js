@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 password: document.getElementById('password').value,
                 birthDate: document.getElementById('birthDate').value,
                 gender: document.getElementById('gender').value,
-                flagTipoUsuario: document.getElementById('flagTipoUsuario').value
+                flagTipoUsuario: document.getElementById('flagTipoUsuario').value,
+                telephone: document.getElementById('cel').value
+                
             };
 
             let specificUserKey = '';
@@ -27,12 +29,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 specificUserKey = 'userLover';
             } else if (userType === 'musico') {
                 specificUser = {
-                    cpf: document.getElementById('cpf').value
+                    cpf: document.getElementById('cpf').value,
+                    musicalGenre: document.getElementById('generoMusical').value
+
                 };
+                specificUserKey = 'userMusician';
             } else if (userType === 'produtor') {
                 specificUser = {
                     cnpj: document.getElementById('cnpj').value
                 };
+                specificUserKey = 'producerUser';
             }
 
             const payload = {
@@ -70,38 +76,37 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    const select = document.getElementById('flagTipoUsuario');
-    const cpfField = document.getElementById('cpfField');
-    const cnpjField = document.getElementById('cnpjField');
-    const cpfInput = document.getElementById('cpf');
-    const cnpjInput = document.getElementById('cnpj');
-
-    function mostrarOpcao() {
-        cpfField.style.display = 'none';
-        cnpjField.style.display = 'none';
-        cpfInput.required = false;
-        cnpjInput.required = false;
-
-        if (select.value === 'musico' || select.value === 'AM') {
-            cpfField.style.display = 'block';
-            cpfInput.required = true;
-        } else if (select.value === 'produtor') {
-            cnpjField.style.display = 'block';
-            cnpjInput.required = true;
-        }
-    }
-
-    // Call mostrarOpcao() when the select value changes
-    select.addEventListener('change', mostrarOpcao);
-
-    // Call mostrarOpcao() initially
-    mostrarOpcao();
-});
-
-    $(document).ready(function(){
-    $('#cel').mask('(00) 00000-0000'); // Máscara para números de celular brasileiros
-    $('#cpf').mask('000.000.000-00', {reverse: true}); // Máscara para CPF
-    $('#cnpj').mask('00.000.000/0000-00', {reverse: true}); // Máscara para CNPJ
-});
-</script>
+   document.addEventListener('DOMContentLoaded', function() {
+            const select = document.getElementById('flagTipoUsuario');
+            const cpfField = document.getElementById('cpfField');
+            const cnpjField = document.getElementById('cnpjField');
+            const cpfInput = document.getElementById('cpf');
+            const cnpjInput = document.getElementById('cnpj');
+    
+            function mostrarOpcao() {
+                cpfField.style.display = 'none';
+                cnpjField.style.display = 'none';
+                cpfInput.required = false;
+                cnpjInput.required = false;
+    
+                if (select.value === 'musico' || select.value === 'AM') {
+                    cpfField.style.display = 'block';
+                    cpfInput.required = true;
+                } else if (select.value === 'produtor') {
+                    cnpjField.style.display = 'block';
+                    cnpjInput.required = true;
+                }
+            }
+    
+            // Call mostrarOpcao() when the select value changes
+            select.addEventListener('change', mostrarOpcao);
+    
+            // Call mostrarOpcao() initially
+            mostrarOpcao();
+        });
+        
+            $(document).ready(function(){
+            $('#cel').mask('(00) 00000-0000'); // Máscara para números de celular brasileiros
+            $('#cpf').mask('000.000.000-00', {reverse: true}); // Máscara para CPF
+            $('#cnpj').mask('00.000.000/0000-00', {reverse: true}); // Máscara para CNPJ
+        });
