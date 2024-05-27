@@ -134,3 +134,36 @@ body {
     flex-direction: column;
     display: flex;
 }
+.select-genero{
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+}
+
+.dropdown-gender{
+    margin-top: 0px;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.dropdown-gender option{
+    background-color: #2f2f2f;
+    color: #f0f0f0;
+}
+.dropdown-gender select{
+    outline: none;
+    align-self: center;
+    height: 100%;
+    width: 10vw;
+    color: #f0f0f0;
+    background-color: #2f2f2f;
+    border-radius: 5px;
+    text-align: center;
+}
+.dropdown-gender label{
+    color: #f0f0f0;
+    font-weight: 700;
+    margin-top: 10px
+}
