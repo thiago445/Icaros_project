@@ -53,7 +53,7 @@ body * {
     box-shadow: 0px 10px 40px;
 }
 .card-login > h1{
-    color: #f0f0f0;
+    color: #ecd182;
     font-weight: 800;
     margin: 0;
 }
@@ -122,11 +122,13 @@ body * {
     font-weight: 800;
     letter-spacing: 0px;
     color:#0f0f0f;
-    background-color: #ecd182;
+    background-color: #f0f0f0;
     cursor: pointer;
     box-shadow: 0px 10px 40px -12px #000;
 }
- 
+.card-bttn input[type="submit"]:hover {
+    background-color: #ecd182;
+}
 .bttn-signin{
     height: 40%;
     width: 50%;

@@ -1,5 +1,8 @@
 @import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
 
+body *{
+    box-sizing: border-box;
+}
 body {
     font-family: 'roboto', sans-serif;
     background-color: #0f0f0f;
@@ -9,6 +12,48 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+}
+img{
+    width: 8vw;
+    height: 15vh;
+    cursor: pointer;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ECD182;
+}
+input{
+    width: 90%;
+    padding: 10px;
+    margin: 10px 1px;
+    border: none;
+    border-radius: 5px;
+    color: #7f7f7f;
+    background-color: #2f2f2f;
+}
+option{
+    background-color: #2f2f2f;
+    color: #f0f0f0;
+}
+select{
+    outline: none;
+    align-self: center;
+    height: 100%;
+    width: 5vw;
+    color: #f0f0f0;
+    background-color: #2f2f2f;
+    border-radius: 5px;
+    text-align: center;
+}
+label{
+    color: #ECD182;
+    font-weight: 700;
+    margin-top: 10px
+}
+p {
+    font-weight: 700;
+    color: #f9f9f9;
 }
 .cabecalho {
     display: flex;
@@ -20,62 +65,14 @@ body {
     border-radius: 10px;
     margin-bottom: 20px;
 }
-
-.cabecalho img {
-    width: 3vw;
-    height: auto;
-    margin-right: 10px;
-}
-
-.cabecalho p {
-    font-weight: 700;
-    color: #f9f9f9;
-}
-.down-signin {
-    width: 100vw;
-    height: 50vh;
-    background: #0f0f0f;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 .signin {
-    width: 100%;
+    width: 500vw;
     text-align:center;
     background-color:  #1f1f1f;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     max-width: 300px;
-}
-.signin h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #f0f0f0;
-}
-.signin input[type="text"],
-.signin input[type="email"],
-.signin input[type="password"],
-.signin input[type="date"],
-.signin input[type="tel"],
-.signin input[type="submit"] {
-    width: 90%;
-    padding: 10px;
-    margin: 10px 1px;
-    border: none;
-    border-radius: 5px;
-    color: #7f7f7f;
-    background-color: #2f2f2f;
-}
-.signin input[type="submit"] {
-    font-weight: 800;
-    background-color: #f9f9f9;
-    color: #0f0f0f;
-    cursor: pointer;
-}
-.signin input[type="submit"]:hover {
-    background-color: #f0f0f0;
 }
 .above-signin{
     margin-bottom: 0px;
@@ -86,10 +83,23 @@ body {
     align-items: center;
     flex-direction: column;
 }
-.above-signin-image{
-    width: 8vw;
-    height: 15vh;
+.down-signin {
+    width: 100vw;
+    height: 50vh;
+    background: #0f0f0f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.signin input[type="submit"] {
+    font-weight: 800;
+    background-color: #f9f9f9;
+    color: #0f0f0f;
     cursor: pointer;
+}
+.signin input[type="submit"]:hover {
+    background-color: #ECD182;
 }
 .hiperlink{
     text-align: center;
@@ -104,24 +114,12 @@ body {
     align-items: center;
     justify-content: center;
 }
-.dropdown-signin option{
-    background-color: #2f2f2f;
-    color: #f0f0f0;
-}
-.dropdown-signin select{
-    outline: none;
-    align-self: center;
-    height: 100%;
-    width: 5vw;
-    color: #f0f0f0;
-    background-color: #2f2f2f;
-    border-radius: 5px;
+.sexo-gender{
+    align-items: center;
+    justify-content: center;
     text-align: center;
-}
-.dropdown-signin label{
-    color: #f0f0f0;
-    font-weight: 700;
-    margin-top: 10px
+    flex-direction: row;
+    display: flex;
 }
 .select-sexo{
     text-align: center;
@@ -129,41 +127,79 @@ body {
     display: flex;
     margin-right: 50px;
 }
-.select-sou{
-    text-align: center;
-    flex-direction: column;
-    display: flex;
-}
 .select-genero{
     text-align: center;
     flex-direction: column;
     display: flex;
 }
-
 .dropdown-gender{
     margin-top: 0px;
     display: flex;
-    width: 100%;
-    flex-direction: row;
+    width: 100%; 
     align-items: center;
     justify-content: center;
 }
-.dropdown-gender option{
-    background-color: #2f2f2f;
-    color: #f0f0f0;
-}
-.dropdown-gender select{
-    outline: none;
-    align-self: center;
-    height: 100%;
-    width: 10vw;
-    color: #f0f0f0;
-    background-color: #2f2f2f;
-    border-radius: 5px;
+.select-sou{
+    margin-bottom: 2%;
     text-align: center;
+    flex-direction: column;
+    display: flex;
 }
-.dropdown-gender label{
-    color: #f0f0f0;
-    font-weight: 700;
-    margin-top: 10px
+.select-sou select{
+    width: 7vw;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

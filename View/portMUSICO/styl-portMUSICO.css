@@ -12,7 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #1f1f1f;
-    width: 100%;
+    width: 99%;
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -22,11 +22,6 @@ body {
     width: 3vw;
     height: auto;
     margin-right: 10px;
-}
-
-.cabecalho p {
-    font-weight: 700;
-    color: #f9f9f9;
 }
 .perfil{
     margin-top: 3%;
@@ -83,8 +78,8 @@ body {
     text-align: center;
     justify-content: center;
     align-items: center;
-    color: #f9f9f9;
-    border: 2px solid #f9f9f9;
+    color: #ECD182;
+    border: 2px solid #ECD182;
     border-radius: 15px;
 }
 .nome-email{
@@ -118,7 +113,7 @@ body {
     padding: 5px;
     border-radius: 10px;
     font-weight: 900;
-    color: #f9f9f9;
+    color: #ECD182;
 }
 .nome-email p{
     display: flex;
@@ -137,7 +132,7 @@ body {
 .descricao label{
     display: flex;
     font-weight: 900;
-    color: #f9f9f9;
+    color: #ECD182;
 }
 .descricao p{
     display: flex;
@@ -154,7 +149,7 @@ body {
     display: flex;
     margin-bottom: 3%;
     font-weight: 900;
-    color: #f9f9f9;
+    color: #ECD182;
 }
 .apresentacao input{
     background-color: #2f2f2f;
