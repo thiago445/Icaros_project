@@ -14,14 +14,14 @@ body {
     margin: 0;
 }
 img{
-    width: 8vw;
-    height: 15vh;
+    width: 20vw;
+    height: 30vh;
     cursor: pointer;
 }
 h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: #ECD182;
+    color: #f0f0f0;
 }
 input{
     width: 90%;
@@ -47,7 +47,7 @@ select{
     text-align: center;
 }
 label{
-    color: #ECD182;
+    color: #f0f0f0;
     font-weight: 700;
     margin-top: 10px
 }
@@ -55,17 +55,12 @@ p {
     font-weight: 700;
     color: #f9f9f9;
 }
-.cabecalho {
-    display: flex;
+.tudo{
+    display:flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    background-color: #1f1f1f;
-    width: 100%;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 20px;
 }
-.signin {
+.right-signin {
     width: 500vw;
     text-align:center;
     background-color:  #1f1f1f;
@@ -74,7 +69,7 @@ p {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     max-width: 300px;
 }
-.above-signin{
+.left-signin{
     margin-bottom: 0px;
     width: 50vw;
     height: 50vh;
@@ -83,13 +78,18 @@ p {
     align-items: center;
     flex-direction: column;
 }
-.down-signin {
+.signin {
+    max-width: 100%;
     width: 100vw;
     height: 50vh;
     background: #0f0f0f;
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+.signin-form {
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 .signin input[type="submit"] {
@@ -147,6 +147,27 @@ p {
 }
 .select-sou select{
     width: 7vw;
+}
+.color-musico h2,
+.color-musico label {
+    color: blue;
+}
+.color-produtor h2,
+.color-produtor label {
+    color: green;
+}
+.color-am h2,
+.color-am label {
+    color: red;
+}
+.color-musico input[type="submit"]:hover {
+    background-color: blue;
+}
+.color-produtor input[type="submit"]:hover {
+    background-color: green;
+}
+.color-am input[type="submit"]:hover {
+    background-color: red;
 }
 
 
