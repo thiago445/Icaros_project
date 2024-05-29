@@ -1,36 +1,50 @@
 @import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
-
-body *{
+ 
+body{
+    margin: 0px;
+    font-family: 'roboto', sans-serif;
+}
+body * {
     box-sizing: border-box;
 }
-body {
-    font-family: 'roboto', sans-serif;
-    background-color: #0f0f0f;
+h1{
     color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+    text-align: center;
 }
 img{
-    width: 8vw;
-    height: 15vh;
+    width: 20vw;
+    height: 30vh;
     cursor: pointer;
 }
-h2 {
+form{
+    width: 60%;
+    display: flex;
     text-align: center;
-    margin-bottom: 20px;
-    color: #ECD182;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2% 0px;
+    background: #1f1f1f;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px;
+}
+h2{
+    color: #ecd182;
+    font-weight: 800;
+    margin: 0;
 }
 input{
-    width: 90%;
-    padding: 10px;
-    margin: 10px 1px;
+    width: 15vw;
     border: none;
-    border-radius: 5px;
-    color: #7f7f7f;
-    background-color: #2f2f2f;
+    border-radius: 10px;
+    padding: 15px;
+    background: #2f2f2f;
+    color: #f0f0f0;
+    font-size: 10pt;
+    box-shadow: 0px 10px 40px #1f1f1f;
+    outline: none;
+    box-sizing: border-box;
+    margin-top: 20px;
 }
 option{
     background-color: #2f2f2f;
@@ -47,7 +61,7 @@ select{
     text-align: center;
 }
 label{
-    color: #ECD182;
+    color: #f0f0f0;
     font-weight: 700;
     margin-top: 10px
 }
@@ -55,56 +69,29 @@ p {
     font-weight: 700;
     color: #f9f9f9;
 }
-.cabecalho {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1f1f1f;
-    width: 100%;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-.signin {
-    width: 500vw;
-    text-align:center;
-    background-color:  #1f1f1f;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    max-width: 300px;
-}
-.above-signin{
-    margin-bottom: 0px;
-    width: 50vw;
-    height: 50vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.down-signin {
+.signin{
     width: 100vw;
-    height: 50vh;
+    height: 100vh;
     background: #0f0f0f;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.signin input[type="submit"] {
-    font-weight: 800;
-    background-color: #f9f9f9;
-    color: #0f0f0f;
-    cursor: pointer;
+.left-signin{
+    width: 35vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
-.signin input[type="submit"]:hover {
-    background-color: #ECD182;
-}
-.hiperlink{
-    text-align: center;
-    font-size: 12pt;
-    color: #7f7f7f;
+.right-signin{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .dropdown-signin{
     margin-top: 0px;
@@ -148,58 +135,89 @@ p {
 .select-sou select{
     width: 7vw;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.Field{
+    display: flex;
+    flex-direction: column;
+}
+.Field input{
+    margin-top: 1%;
+}
+.signin input[type="submit"] {
+    font-weight: 800;
+    background-color: #f9f9f9;
+    color: #0f0f0f;
+    cursor: pointer;
+}
+.signin input[type="submit"]:hover {
+    background-color: #9f9f9f;
+}
+.hiperlink{
+    text-align: center;
+    font-size: 12pt;
+    color: #7f7f7f;
+}
+.color-musico h2,
+.color-musico label {
+    color: blue;
+}
+.color-produtor h2,
+.color-produtor label {
+    color: green;
+}
+.color-am h2,
+.color-am label{
+    color: red;
+}
+.color-musico input[type="submit"]:hover {
+    background-color: blue;
+}
+.color-produtor input[type="submit"]:hover {
+    background-color: green;
+}
+.color-am input[type="submit"]:hover {
+    background-color: red;
+}
+@media only screen and (max-width:950px){
+    .card-login{
+        width: 85%;
+    }
+    .left-login-image{
+        width: 25vw;
+        height: 25vh;
+    }
+    .left-login{
+        width: 100%;
+        height: auto;
+    }
+    .right-login{
+        width: 100%
+    }
+    .card-login{
+        width: 90%;
+    }
+}
+ 
+@media only screen and (max-width: 600px){
+    .main-login{
+        flex-direction: column;
+    }
+    .left-login > h1{
+        display: none;
+    }
+    .left-login{
+        width: 100%;
+        height: auto;
+    }
+    .right-login{
+        width: 100%;
+        height: auto;
+    }
+    .left-login-image{
+        width: 50vw;
+        margin-bottom: 50px;
+    }
+    .card-login{
+        width: 90%;
+    }
+}
+ 
