@@ -15,12 +15,12 @@
         <div class="signin">
             <div class="left-signin">
                 <a href="../index.html"><img src="../ARCHIVES/image/Icaros-branco.png" class="left-login-image"></a>
-                <h1>Desperte e voe até o Sol,</h1>
-                <h1>venha fazer parte.</h1>
+                <h1>Desperte e voe até o Sol,<br>
+                venha fazer parte.</h1>
             </div>
             <div class="right-signin" id="signin">
-                <h2>Cadastro</h2>
                 <form id="CadastroForm" action="" class="signin-form">
+                    <h2>CADASTRO</h2>
                     <input type="text" id="name" name="name" placeholder="Nome Completo" required title="Digite seu Nome">
                     <input type="email" id="email" name="email" placeholder="Email" required title="Digite seu Email">
                     <input type="password" id="password" name="psw" placeholder="Password" required title="Escolha uma senha">
@@ -70,21 +70,25 @@
                             <option value="AM">Amante da Música</option>
                         </select>
                     </div>
-                    <div id="cpfField" style="display: none;">
+                    <div id="cpfField" style="display: none;" class="Field">
                         <label for="cpf">CPF:</label>
-                        <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" title="Digite seu CPF">
+                        <div>
+                            <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" title="Digite seu CPF">
+                        </div>
                     </div>
-                    <div id="cnpjField" style="display: none;">
+                    <div id="cnpjField" style="display: none;" class="Field">
                         <label for="cnpj">CNPJ:</label>
-                        <input type="text" id="cnpj" name="cnpj" placeholder="Digite seu CNPJ" title="Digite seu CNPJ">
+                        <div>
+                            <input type="text" id="cnpj" name="cnpj" placeholder="Digite seu CNPJ" title="Digite seu CNPJ">
+                        </div>
                     </div>
                     <input type="submit" value="Confirm">
                 </form>
+                <p>
+                    Já possui cadastro? <a class="hiperlink" href="../LOGIN/login.html">Clique aqui.</a>
+                </p> 
             </div>
-            <p>
-                Já possui cadastro? <a class="hiperlink" href="../LOGIN/login.html">Clique aqui.</a>
-            </p>  
-        </div>  
+        </div>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
