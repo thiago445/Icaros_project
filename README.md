@@ -27,9 +27,12 @@
 
 :heavy_check_mark: `Funcionalidade 1:` Realizar cadastro dos usuários, podendo ser músico, produtor musical e amante da música.
 
-:heavy_check_mark: `Funcionalidade 2:` Personalização do perfil de cada tipo de usuário.
+:heavy_check_mark: `Funcionalidade 2:` Usuário músico fazer login, criar e editar perfil, criar e ditar portifólio.
 
-:heavy_check_mark: `Funcionalidade 3:` O usuário produtor musical poderá criar eventos onde os músicos poderão participar.
+:heavy_check_mark: `Funcionalidade 3:` Usuário amante da música fazer login, criar e editar perfil.
+
+:heavy_check_mark: `Funcionalidade 4:` Usuário produtor musical fazer login, criar e editar perfil, criar eventos.
+
 
 
 
