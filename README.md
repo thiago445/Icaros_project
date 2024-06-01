@@ -16,8 +16,8 @@
 ## Descrição do projeto 
 
 <p align="justify">
- Desenvolver uma plataforma inovadora que simplifica a conexão entre músicos e oportunidades de trabalho, enquanto fomenta a colaboração e o crescimento dentro da comunidade musical. 
-  Criar um ambiente dinâmico onde os profissionais da música possam não apenas divulgar seus talentos, mas também trocar experiências, conhecimentos e insights valiosos. O aplicativo recebu o nome de Ícaros em homenagem ao ímpeto do ser mitológicco em alçar voo em direção ao sol. 
+ O Ícaros é uma plataforma inovadora que simplifica a conexão entre músicos e oportunidades de trabalho, enquanto fomenta a colaboração e o crescimento dentro da comunidade musical. 
+  Criar um ambiente dinâmico onde os profissionais da música possam não apenas divulgar seus talentos, mas também trocar experiências, conhecimentos e insights valiosos. O aplicativo recebu o nome de Ícaros em homenagem ao ímpeto do ser mitológico em alçar voo em direção ao sol. 
 
 ![Logo Ícaros](https://github.com/thiago445/Icaros_project/assets/105327109/d770bb0a-31c4-4001-af25-6e86d95533a4)
 
