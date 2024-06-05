@@ -6,8 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.Icaros.Repository.UserLoverRepository;
-import com.Icaros.Repository.UserRepository;
-import com.Icaros.models.User;
+import com.Icaros.Services.Exceptions.ObjectNotFoundException;
 import com.Icaros.models.UserLover;
 
 import jakarta.transaction.Transactional;
@@ -21,11 +20,12 @@ public class UserLoverService {
 	@Transactional
 	public UserLover findById(Long id) {
 		Optional<UserLover> obj = this.userLoverRepository.findById(id);
-		return obj.orElseThrow(()-> new RuntimeException(
+		return obj.orElseThrow(()-> new ObjectNotFoundException(
 				"usuario nao encontrado"));
 	}
 	@Transactional
 	public UserLover create(UserLover obj) {
+		
 		obj.setId(null);	
 		obj= this.userLoverRepository.save(obj);
 		return obj;

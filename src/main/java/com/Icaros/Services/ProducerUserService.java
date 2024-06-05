@@ -32,7 +32,6 @@ public class ProducerUserService {
 	
 	public ProducerUser update(ProducerUser obj) {
 		ProducerUser newObj= this.findById(obj.getId());
-		newObj.setFantasynName(obj.getFantasynName());
 		return newObj;
 	}
 	
