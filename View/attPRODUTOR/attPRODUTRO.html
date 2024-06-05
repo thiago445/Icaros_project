@@ -37,7 +37,6 @@
 <body>
     <div class="cabecalho">
         <a href="../index.html"><img src="/ARCHIVES/image/Icaros-branco.png"></a>
-        <p>Bem-vindo(a) ao site!</p>
     </div>
     <div class="nav-bar">
         <div class="nav-bttn">
@@ -46,40 +45,52 @@
     </div>
     <div class="att-perfil">
         <form class="form-perfil" id="perfilForm" method="PUT" onsubmit="atualizarPerfil(event)">
-            <input type="hidden" id="userId" name="userId" value="1">
-                <label for="foto">Foto de Perfil:</label>
-                <input type="file" id="foto" name="foto" accept="image/*">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="opcoes">Genero musical:</label>
-                        <select id="opcoes" onchange="mostrarOpcao()">
+            <div class="perfil-evento">
+                <div class="perfil">
+                    <input type="hidden" id="userId" name="userId" value="1">
+                    <label for="foto">Foto de Perfil</label>
+                    <input type="file" id="foto" name="foto" accept="image/*">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="opcoes">Estilo</label>
+                    <select id="opcoes">
                         <option value="">Selecione...</option>
-                        <option value="funk" id="">FUNK</option>
-                        <option value="mpb" id="">MPB</option>
-                        <option value="rock" id="">ROCK</option>
-                        <option value="sertanejo" id="">SERTANEJO</option>
-                        <option value="gospel" id="">GOSPEL</option>
-                        <option value="hiphop" id="">HIPHOP</option>
-                        </select>
-                <label for="Evento">Evento:</label>
-                <div class="info-evento">
-                    <label>Midia</label>
-                    <input type="file" id="img-evento" name="img-evento" accept="image/*" required>
-                    <label>Data e hora</label>
-                    <div class="data-hora">
-                        <input type="date" required title="Data do evento">
-                        <input type="time" required title="Hora do evento">
-                    </div>
-                    <label>Local</label>
-                    <input type="text" for="local" name="local" required title="Digite o local do evento" placeholder="Digite o local do evento...">
-                    <label>Descricao</label>
-                    <textarea id="descricao" name="descricao" placeholder="Descreva aqui o evento..." required title="Descreva aqui o evento"></textarea>
+                        <option value="Rock">Rock</option>
+                        <option value="Sertanejo">Sertanejo</option>
+                        <option value="Pop">Pop</option>
+                        <option value="Hip_Hop">Hip Hop</option>
+                        <option value="Jazz">Jazz</option>
+                        <option value="Blues">Blues</option>
+                        <option value="Classical">Classical</option>
+                        <option value="Electronic_Dance_Music">Electronic Dance Music</option>
+                        <option value="Country">Country</option>
+                        <option value="Reggae">Reggae</option>
+                        <option value="Funk">Funk</option>
+                        <option value="Disco">Disco</option>
+                        <option value="Gospel">Gospel</option>
+                    </select>
+                    <label for="descricao">Meu perfil:</label>
+                    <textarea id="descricao" name="descricao" required title="Descreva um resumo sobre voce" placeholder="Descreva um resumo sobre voce..."></textarea>
                 </div>
-                <label for="descricao">Meu perfil:</label>
-                <textarea id="descricao" name="descricao" required title="Descreva um resumo sobre voce" placeholder="Descreva um resumo sobre voce..."></textarea>
-                <input type="submit" value="Atualizar Perfil">
+                <div class="evento">
+                    <div class="info-evento">
+                        <label>Midia</label>
+                        <input type="file" id="img-evento" name="img-evento" accept="image/*" required>
+                        <label>Data e hora</label>
+                        <div class="data-hora">
+                            <input type="date" required title="Data do evento">
+                            <input type="time" required title="Hora do evento">
+                        </div>
+                        <label>Local</label>
+                        <input type="text" for="local" name="local" required title="Digite o local do evento" placeholder="Digite o local do evento...">
+                        <label>Descricao</label>
+                        <textarea id="descricao" name="descricao" placeholder="Descreva aqui o evento..." required title="Descreva aqui o evento"></textarea>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" value="Atualizar Perfil">
         </form>
     </div>
 </body>

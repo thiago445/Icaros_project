@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
 body *{
     box-sizing: border-box;
 }
@@ -19,16 +20,10 @@ body {
     border-radius: 10px;
     margin-bottom: 20px;
 }
-
 .cabecalho img {
     width: 3vw;
     height: auto;
     margin-right: 10px;
-}
-
-.cabecalho p {
-    font-weight: 700;
-    color: #f9f9f9;
 }
 .perfil{
     margin-top: 3%;
@@ -85,8 +80,8 @@ body {
     text-align: center;
     justify-content: center;
     align-items: center;
-    color: #f9f9f9;
-    border: 2px solid #f9f9f9;
+    color: #ECD182;
+    border: 2px solid #ECD182;
     border-radius: 15px;
 }
 .nome-email{
@@ -120,7 +115,7 @@ body {
     padding: 5px;
     border-radius: 10px;
     font-weight: 900;
-    color: #f9f9f9;
+    color: #ECD182;
 }
 .nome-email p{
     display: flex;
@@ -139,7 +134,7 @@ body {
 .descricao label{
     display: flex;
     font-weight: 900;
-    color: #f9f9f9;
+    color: #ECD182;
 }
 .descricao p{
     display: flex;
@@ -156,7 +151,7 @@ body {
     display: flex;
     margin-bottom: 3%;
     font-weight: 900;
-    color: #f9f9f9;
+    color: #ECD182;
 }
 .evento p{
     display: flex;
