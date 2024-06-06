@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 password: document.getElementById('password').value,
                 birthDate: document.getElementById('birthDate').value,
                 gender: document.getElementById('gender').value,
-                flagTipoUsuario: document.getElementById('flagTipoUsuario').value,
+                flagUserType: parseInt(document.getElementById('flagUserType').value, 10),
                 telephone: document.getElementById('cel').value
                 
             };
@@ -18,25 +18,27 @@ document.addEventListener('DOMContentLoaded', function() {
             let specificUserKey = '';
             
             let specificUser = {};
-            const userType = user.flagTipoUsuario;
+            const userType = user.flagUserType;
 
-            if (userType === 'AM') {
+            if (userType == 2) {
                 specificUser = {
                     cpf: document.getElementById('cpf').value,
-                    name: document.getElementById('name').value
+                    name: document.getElementById('name').value,
+                    musicalGenre: document.getElementById('generoMusical').value
                      // Assuming same name as user
                 };
                 specificUserKey = 'userLover';
-            } else if (userType === 'musico') {
+            } else if (userType == 1) {
                 specificUser = {
                     cpf: document.getElementById('cpf').value,
                     musicalGenre: document.getElementById('generoMusical').value
 
                 };
                 specificUserKey = 'userMusician';
-            } else if (userType === 'produtor') {
+            } else if (userType == 3) {
                 specificUser = {
-                    cnpj: document.getElementById('cnpj').value
+                    cnpj: document.getElementById('cnpj').value,
+                    musicalGenre: document.getElementById('generoMusical').value
                 };
                 specificUserKey = 'producerUser';
             }

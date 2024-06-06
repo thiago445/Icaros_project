@@ -22,11 +22,11 @@ public class UserMusician {
 	private Long id;
 	
 	@Column(name = "CPF",unique = true)
-	private String cpf; //porque nao foi declarado no usuario
+	private String cpf;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name = "GENERO_MUSICAL")
-	private MusicalGenre musicalGenre;
+	private MusicalGenreEnum musicalGenre;
 
 	
 	@Column(name = "DESCRICAO")
@@ -36,33 +36,13 @@ public class UserMusician {
 	@JoinColumn(name = "ID_USUARIO", referencedColumnName = "ID_USUARIO")
 	private User user;
 	
-	
-	public enum MusicalGenre{
-		Rock,
-		Sertanejo,
-		Pop,
-		Hip_Hop,
-		Jazz,
-		Blues,
-		Classical,
-		Electronic_Dance_Music,
-		Country,
-		Reggae,
-		Reggaeton,
-		Soul,
-		Funk,
-		Disco,
-		Gospel,
-		Todos
-	}
-	
 	public UserMusician() {
 		
 	}
 	
 	// Getters and Setters
 
-	public UserMusician(Long id, String cpf, MusicalGenre musicalGenre, String description, User user) {
+	public UserMusician(Long id, String cpf, MusicalGenreEnum musicalGenre, String description, User user) {
 		super();
 		this.id = id;
 		this.cpf = cpf;
@@ -88,11 +68,11 @@ public class UserMusician {
 		this.cpf = cpf;
 	}
 
-	public MusicalGenre getMusicalGenre() {
+	public MusicalGenreEnum getMusicalGenre() {
 		return musicalGenre;
 	}
 
-	public void setMusicalGenre(MusicalGenre musicalGenre) {
+	public void setMusicalGenre(MusicalGenreEnum musicalGenre) {
 		this.musicalGenre = musicalGenre;
 	}
 

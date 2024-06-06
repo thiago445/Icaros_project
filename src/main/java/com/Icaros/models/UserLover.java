@@ -4,6 +4,8 @@ import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -23,8 +25,10 @@ public class UserLover {
 	@Column(name = "CPF")
 	private String cpf;
 	
-	@Column(name = "NOME")
-	private String name;
+	@Enumerated(EnumType.STRING)
+	@Column(name = "GENERO_MUSICAL")
+	private MusicalGenreEnum musicalGenre;
+
 	
 	@JoinColumn(name = "ID_USUARIO", referencedColumnName = "ID_USUARIO")
 	@OneToOne
@@ -34,10 +38,12 @@ public class UserLover {
 	
 	//Constructor
 
-	public UserLover(Long id, String cpf, User user) {
+	
+	public UserLover(Long id, String cpf, MusicalGenreEnum musicalGenre, User user) {
 		super();
 		this.id = id;
 		this.cpf = cpf;
+		this.musicalGenre = musicalGenre;
 		this.user = user;
 	}
 	
@@ -48,16 +54,17 @@ public class UserLover {
 		return id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	
+	public MusicalGenreEnum getMusicalGenre() {
+		return musicalGenre;
+	}
+
+	public void setMusicalGenre(MusicalGenreEnum musicalGenre) {
+		this.musicalGenre = musicalGenre;
 	}
 
 	public String getCpf() {
@@ -80,7 +87,7 @@ public class UserLover {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(cpf, id, name, user);
+		return Objects.hash(cpf, id, user);
 	}
 
 	@Override
@@ -92,8 +99,8 @@ public class UserLover {
 		if (getClass() != obj.getClass())
 			return false;
 		UserLover other = (UserLover) obj;
-		return Objects.equals(cpf, other.cpf) && Objects.equals(id, other.id) && Objects.equals(name, other.name)
-				&& Objects.equals(user, other.user);
+		return Objects.equals(cpf, other.cpf) && Objects.equals(id, other.id)
+				&& musicalGenre == other.musicalGenre && Objects.equals(user, other.user);
 	}
 	
 	
