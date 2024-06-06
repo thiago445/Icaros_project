@@ -65,9 +65,9 @@
                         <label for="sou">Sou</label>
                         <select id="flagTipoUsuario" name="flagTipoUsuario" required>
                             <option value="">Selecione...</option>
-                            <option value="1">Músico</option>
-                            <option value="3">Produtor Musical</option>
-                            <option value="2">Amante da Música</option>
+                            <option value=1>Músico</option>
+                            <option value=3>Produtor Musical</option>
+                            <option value=2>Amante da Música</option>
                         </select>
                     </div>
                     <div id="cpfField" style="display: none;" class="Field">
@@ -111,16 +111,16 @@
 
                 signin.classList.remove('color-musico', 'color-produtor', 'color-am'); // Aplicar ao contêiner
 
-                if (select.value === 'AM') {
+                if (select.value == 1) {
                     cpfField.style.display = 'block';
                     cpfInput.required = true;
                     signin.classList.add('color-am'); // Aplicar ao contêiner
-                } else if (select.value === 'musico') {
+                } else if (select.value == 2) {
                     cpfField.style.display = 'block';
                     cpfInput.required = true;
                     generoInput.required = true;
                     signin.classList.add('color-musico'); // Aplicar ao contêiner
-                } else if (select.value === 'produtor') {
+                } else if (select.value == 3) {
                     cnpjField.style.display = 'block';
                     cnpjInput.required = true;
                     signin.classList.add('color-produtor'); // Aplicar ao contêiner
