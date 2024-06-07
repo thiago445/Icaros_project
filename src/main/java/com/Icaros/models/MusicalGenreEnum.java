@@ -1,7 +1,6 @@
 package com.Icaros.models;
 
 public enum MusicalGenreEnum{
-	
 	Rock,
 	Sertanejo,
 	Pop,

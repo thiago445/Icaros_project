@@ -7,5 +7,6 @@ import com.Icaros.models.UserMusician;
 
 @Repository
 public interface UserMusicianRepository extends JpaRepository<UserMusician,Long>  {
+	UserMusician findByUserEmail(String email);
 
 }

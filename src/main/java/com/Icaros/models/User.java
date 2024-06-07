@@ -6,7 +6,6 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -20,7 +19,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -59,6 +58,10 @@ public class User {
 
 	@Column(name = "TELEFONE")
 	private String telephone;
+	
+	@Column(name="GENERO_MUSICAL")
+	@Enumerated(EnumType.STRING)
+	private MusicalGenreEnum MusicalGenre;
 
 	
 	
@@ -85,17 +88,20 @@ public class User {
 
 	}
 
-	public User(Long id, String name, String email, String password, Gender gender, int flagTipoUsuario,
-			String telephone, Date birthDate) {
+	
+	public User(Long id, String name,String email,String password, Gender gender, int flagUserType, Date birthDate, String telephone,
+			MusicalGenreEnum musicalGenre, Set<Integer> profiles) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.password = password;
 		this.gender = gender;
-		this.flagUserType = flagTipoUsuario;
-		this.telephone = telephone;
+		this.flagUserType = flagUserType;
 		this.birthDate = birthDate;
+		this.telephone = telephone;
+		MusicalGenre = musicalGenre;
+		this.profiles = profiles;
 	}
 
 	// GETTERS IN SETTERS
@@ -129,6 +135,16 @@ public class User {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	
+
+	public MusicalGenreEnum getMusicalGenre() {
+		return MusicalGenre;
+	}
+
+	public void setMusicalGenre(MusicalGenreEnum musicalGenre) {
+		MusicalGenre = musicalGenre;
 	}
 
 	public String getEmail() {

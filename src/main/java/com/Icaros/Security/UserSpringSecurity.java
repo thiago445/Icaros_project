@@ -9,6 +9,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.Icaros.models.FlagUserTypeEnum;
+import com.Icaros.models.MusicalGenreEnum;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,14 +23,17 @@ public class UserSpringSecurity implements UserDetails  {
 	private String username;
 	
 	private String password;
+
+	private MusicalGenreEnum MusicalGenre; 
 	
 	public Collection<? extends GrantedAuthority> authorities;
 	
 	
-	public UserSpringSecurity(Long id, String email, String password,Set<FlagUserTypeEnum> flagUserTypeEnums) {
+	public UserSpringSecurity(Long id, String email, String password,MusicalGenreEnum MusicalGenre,Set<FlagUserTypeEnum> flagUserTypeEnums) {
 		this.id = id;
 		this.username = email;
 		this.password = password;
+		this.MusicalGenre = MusicalGenre;
 		this.authorities = flagUserTypeEnums.stream().map(x -> new SimpleGrantedAuthority(x.getDescription())).collect(Collectors.toList());
 	}
 	

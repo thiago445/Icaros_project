@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.Icaros.Repository.UserMusicianRepository;
+import com.Icaros.models.UserLover;
 import com.Icaros.models.UserMusician;
 
 import jakarta.transaction.Transactional;
@@ -21,6 +22,12 @@ public class UserMusicianService {
 		Optional<UserMusician> obj= this.userMusicianRepository.findById(id);
 		return obj.orElseThrow(()-> new  RuntimeException(
 				"o usuario musico nao foi encontrado"));
+	}
+	
+	@Transactional
+	public UserMusician findByEmail(String email) {
+		UserMusician obj = this.userMusicianRepository.findByUserEmail(email);
+		return obj;
 	}
 	
 	@Transactional

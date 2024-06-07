@@ -34,7 +34,18 @@ public class Profile {
 	private UserMusician userMusician;
 
 	//Constructor
+	
 	public Profile() {	}
+
+
+	public Profile(Long id, String description, String link, String comment, UserMusician userMusician) {
+		super();
+		this.id = id;
+		this.description = description;
+		this.link = link;
+		this.comment = comment;
+		this.userMusician = userMusician;
+	}
 
 
 	//getters in setters

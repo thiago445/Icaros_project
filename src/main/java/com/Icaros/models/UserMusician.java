@@ -24,14 +24,6 @@ public class UserMusician {
 	@Column(name = "CPF",unique = true)
 	private String cpf;
 	
-	@Enumerated(EnumType.STRING)
-	@Column(name = "GENERO_MUSICAL")
-	private MusicalGenreEnum musicalGenre;
-
-	
-	@Column(name = "DESCRICAO")
-	private String description;
-	
 	@OneToOne
 	@JoinColumn(name = "ID_USUARIO", referencedColumnName = "ID_USUARIO")
 	private User user;
@@ -42,12 +34,10 @@ public class UserMusician {
 	
 	// Getters and Setters
 
-	public UserMusician(Long id, String cpf, MusicalGenreEnum musicalGenre, String description, User user) {
+	public UserMusician(Long id, String cpf,User user) {
 		super();
 		this.id = id;
 		this.cpf = cpf;
-		this.musicalGenre = musicalGenre;
-		this.description = description;
 		this.user = user;
 	}
 	
@@ -68,22 +58,6 @@ public class UserMusician {
 		this.cpf = cpf;
 	}
 
-	public MusicalGenreEnum getMusicalGenre() {
-		return musicalGenre;
-	}
-
-	public void setMusicalGenre(MusicalGenreEnum musicalGenre) {
-		this.musicalGenre = musicalGenre;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
 	public User getUser() {
 		return user;
 	}
@@ -95,7 +69,7 @@ public class UserMusician {
 	 // hashCode and equals
 		@Override
 		public int hashCode() {
-			return Objects.hash(cpf, description, id, musicalGenre, user);
+			return Objects.hash(cpf, id, user);
 		}
 
 		@Override
@@ -107,8 +81,8 @@ public class UserMusician {
 			if (getClass() != obj.getClass())
 				return false;
 			UserMusician other = (UserMusician) obj;
-			return cpf == other.cpf && Objects.equals(description, other.description) && Objects.equals(id, other.id)
-					&& musicalGenre == other.musicalGenre && Objects.equals(user, other.user);
+			return cpf == other.cpf && Objects.equals(id, other.id)
+					&& Objects.equals(user, other.user);
 		}
 	
 	
