@@ -3,6 +3,7 @@ package com.Icaros.Controller;
 import java.net.URI;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +18,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.Icaros.Services.ProfileService;
 import com.Icaros.models.Profile;
 
-import ch.qos.logback.core.subst.Token;
 import jakarta.validation.Valid;
 
 @RestController
@@ -36,7 +36,15 @@ public class ProfileController {
 	}
 
 	
-	
+	 @GetMapping("/musician")
+	    public ResponseEntity<Profile> getPortfolioByMusicianId() {
+	        Profile profile = profileService.findByMusicianId();
+	        if (profile != null) {
+	            return ResponseEntity.ok(profile);
+	        } else {
+	            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+	        }
+	 }
 	@PostMapping
 	@Validated
 	public ResponseEntity<Profile> createProfile(@Valid @RequestBody Profile profile){

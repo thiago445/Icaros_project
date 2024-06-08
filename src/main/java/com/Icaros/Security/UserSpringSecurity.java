@@ -26,14 +26,17 @@ public class UserSpringSecurity implements UserDetails  {
 
 	private MusicalGenreEnum MusicalGenre; 
 	
+	private int flagUserType;
+	
 	public Collection<? extends GrantedAuthority> authorities;
 	
 	
-	public UserSpringSecurity(Long id, String email, String password,MusicalGenreEnum MusicalGenre,Set<FlagUserTypeEnum> flagUserTypeEnums) {
+	public UserSpringSecurity(Long id, String email, String password,MusicalGenreEnum MusicalGenre,int flagUserType,Set<FlagUserTypeEnum> flagUserTypeEnums) {
 		this.id = id;
 		this.username = email;
 		this.password = password;
 		this.MusicalGenre = MusicalGenre;
+		this.flagUserType = flagUserType;
 		this.authorities = flagUserTypeEnums.stream().map(x -> new SimpleGrantedAuthority(x.getDescription())).collect(Collectors.toList());
 	}
 	

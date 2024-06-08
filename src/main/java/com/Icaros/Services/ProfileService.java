@@ -7,10 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.Icaros.Repository.ProfileRepository;
+import com.Icaros.Repository.UserMusicianRepository;
 import com.Icaros.Security.UserSpringSecurity;
 import com.Icaros.Services.Exceptions.AuthorizationExeption;
 import com.Icaros.Services.Exceptions.ObjectNotFoundException;
 import com.Icaros.models.Profile;
+import com.Icaros.models.User;
 import com.Icaros.models.UserMusician;
 
 import jakarta.transaction.Transactional;
@@ -20,6 +22,9 @@ public class ProfileService {
 
 	@Autowired
 	private ProfileRepository profileRepository;
+	
+	@Autowired
+	private UserMusicianRepository userMusicianRepository;
 
 	@Autowired
 	private UserService userService;
@@ -37,6 +42,22 @@ public class ProfileService {
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Profile not found"));
 
 	}
+	
+    public Profile findByMusicianId() {
+    	UserSpringSecurity userSpringSecurity = UserService.authenticaded();
+    	if (Objects.isNull(userSpringSecurity)) {
+			throw new AuthorizationExeption("Access denied");
+		}
+    	User user = this.userService.findById(userSpringSecurity.getId());
+    	
+    	UserMusician userMusician = new UserMusician();
+        userMusician= this.userMusicianRepository.findByUserId(user.getId());
+        
+        Profile profile = this.profileRepository.findByUserMusicianId(userMusician.getId());
+        
+        return profile;
+    }
+
 
 	@Transactional
 	public Profile findByIdVeryfication(Long id, UserSpringSecurity userSpringSecurity) {
