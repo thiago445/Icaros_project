@@ -22,10 +22,6 @@ public class ProducerUser {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Enumerated(EnumType.STRING)
-	@Column(name = "GENERO_MUSICAL")
-	private MusicalGenreEnum musicalGenre;
-
 	@Column(name = "CNPJ", unique = true)
 	private String cnpj;
 
@@ -41,10 +37,9 @@ public class ProducerUser {
 
 	// Constructor
 
-	public ProducerUser(Long id, MusicalGenreEnum musicalGenre, String cnpj, String fantasyName, User user) {
+	public ProducerUser(Long id, String cnpj, String fantasyName, User user) {
 		super();
 		this.id = id;
-		this.musicalGenre = musicalGenre;
 		this.cnpj = cnpj;
 		this.fantasyName = fantasyName;
 		this.user = user;
@@ -60,13 +55,6 @@ public class ProducerUser {
 		this.id = id;
 	}
 
-	public MusicalGenreEnum getMusicalGenre() {
-		return musicalGenre;
-	}
-
-	public void setMusicalGenre(MusicalGenreEnum musicalGenre) {
-		this.musicalGenre = musicalGenre;
-	}
 
 	public void setFantasyName(String fantasyName) {
 		this.fantasyName = fantasyName;
@@ -113,7 +101,7 @@ public class ProducerUser {
 			return false;
 		ProducerUser other = (ProducerUser) obj;
 		return Objects.equals(cnpj, other.cnpj) && Objects.equals(fantasyName, other.fantasyName)
-				&& musicalGenre == other.musicalGenre && Objects.equals(id, other.id)
+				&& Objects.equals(id, other.id)
 				&& Objects.equals(user, other.user);
 	}
 
