@@ -7,5 +7,5 @@ import com.Icaros.models.Profile;
 
 @Repository
 public interface ProfileRepository extends JpaRepository<Profile,Long>  {
-
+	Profile findByUserMusicianId(Long musicianId);
 }

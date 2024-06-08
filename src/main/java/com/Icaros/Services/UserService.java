@@ -115,7 +115,7 @@ public class UserService {
 
 	}
 
-	private UserSpringSecurity authenticaded() {
+	public static UserSpringSecurity authenticaded() {
 		try {
 			return (UserSpringSecurity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		} catch (Exception e) {

@@ -23,6 +23,10 @@ public class UserLoverService {
 		return obj.orElseThrow(()-> new ObjectNotFoundException(
 				"usuario nao encontrado"));
 	}
+	
+	
+	
+		
 	@Transactional
 	public UserLover create(UserLover obj) {
 		

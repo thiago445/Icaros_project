@@ -4,8 +4,6 @@ import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,10 +23,6 @@ public class UserLover {
 	@Column(name = "CPF")
 	private String cpf;
 	
-	@Enumerated(EnumType.STRING)
-	@Column(name = "GENERO_MUSICAL")
-	private MusicalGenreEnum musicalGenre;
-
 	
 	@JoinColumn(name = "ID_USUARIO", referencedColumnName = "ID_USUARIO")
 	@OneToOne
@@ -39,11 +33,10 @@ public class UserLover {
 	//Constructor
 
 	
-	public UserLover(Long id, String cpf, MusicalGenreEnum musicalGenre, User user) {
+	public UserLover(Long id, String cpf, User user) {
 		super();
 		this.id = id;
 		this.cpf = cpf;
-		this.musicalGenre = musicalGenre;
 		this.user = user;
 	}
 	
@@ -58,14 +51,6 @@ public class UserLover {
 		this.id = id;
 	}
 
-	
-	public MusicalGenreEnum getMusicalGenre() {
-		return musicalGenre;
-	}
-
-	public void setMusicalGenre(MusicalGenreEnum musicalGenre) {
-		this.musicalGenre = musicalGenre;
-	}
 
 	public String getCpf() {
 		return cpf;
@@ -100,7 +85,7 @@ public class UserLover {
 			return false;
 		UserLover other = (UserLover) obj;
 		return Objects.equals(cpf, other.cpf) && Objects.equals(id, other.id)
-				&& musicalGenre == other.musicalGenre && Objects.equals(user, other.user);
+			 && Objects.equals(user, other.user);
 	}
 	
 	

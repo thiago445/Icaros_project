@@ -22,33 +22,48 @@ async function loginUser() {
             "Content-Type": "application/json; charset=utf8",
             accept: "application/json"
         }),
-
         body: JSON.stringify({ 
             email: email, 
             password: password 
         }),
     });
-    let key= "Authorization";
+
+    let key = "Authorization";
     let token = response.headers.get(key);
     window.localStorage.setItem(key, token);
 
-    if(response.ok){
+    if (response.ok) {
         showToast("#okToast");
-    }else{
+
+        // Adicionar o token no cabeçalho da segunda requisição
+        const portfolioResponse = await fetch('http://localhost:8080/user/profile/musician', {
+            headers: new Headers({
+                "Authorization": token
+            })
+        });
+
+        if (portfolioResponse.status === 204) { // No Content
+            alert('Perfil incompleto. Redirecionando para a página de cadastro de perfil...');
+            window.setTimeout(function() {
+                window.location.href = '../attMUSICO/attMUSICO.html';
+            }, 2000);
+        } else if (portfolioResponse.ok) {
+            alert('Login bem-sucedido. Redirecionando...');
+            window.setTimeout(function() {
+                window.location.href = '../portMUSICO/portifolio-musico.html';
+            }, 2000);
+        } else {
+            throw new Error('Erro ao verificar o portfólio do músico');
+        }
+    } else {
         showToast("#errorToast");
     }
 
-    window.setTimeout(function(){
-        window.location = "../portMUSICO/portifolio-musico.html";
-    }, 2000);
-
-    function showToast(id){
-        var toastElist = [].slice.call(document.querySelectorAll(id));
-        var toastList = toastElist.map(function (toastx1){
-        return new bootstrap.toaet(toastx1);
+    function showToast(id) {
+        var toastElList = [].slice.call(document.querySelectorAll(id));
+        var toastList = toastElList.map(function(toastEl) {
+            return new bootstrap.Toast(toastEl);
         });
-        toastList.forEach((toaet)  =>toastElist.show());
-    };
-    
-
+        toastList.forEach((toast) => toast.show());
+    }
 }
