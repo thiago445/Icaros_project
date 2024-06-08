@@ -79,6 +79,7 @@
                     <div id="cnpjField" style="display: none;" class="Field">
                         <label for="cnpj">CNPJ:</label>
                         <div>
+                            <p id="resultado"></p>
                             <input type="text" id="cnpj" name="cnpj" placeholder="Digite seu CNPJ" title="Digite seu CNPJ">
                         </div>
                     </div>
@@ -97,7 +98,6 @@
             const cnpjField = document.getElementById('cnpjField');
             const cpfInput = document.getElementById('cpf');
             const cnpjInput = document.getElementById('cnpj');
-            const signin = document.getElementById('signin'); // Alteração para selecionar o contêiner correto
             const generoField = document.getElementById('generoField');
             const generoInput = document.getElementById('generoMusical');
             const form = document.getElementById('CadastroForm');
@@ -109,21 +109,16 @@
                 cnpjInput.required = false;
                 generoInput.required = false;
 
-                signin.classList.remove('color-musico', 'color-produtor', 'color-am'); // Aplicar ao contêiner
-
                 if (select.value == 1) {
                     cpfField.style.display = 'block';
                     cpfInput.required = true;
-                    signin.classList.add('color-am'); // Aplicar ao contêiner
                 } else if (select.value == 2) {
                     cpfField.style.display = 'block';
                     cpfInput.required = true;
                     generoInput.required = true;
-                    signin.classList.add('color-musico'); // Aplicar ao contêiner
                 } else if (select.value == 3) {
                     cnpjField.style.display = 'block';
                     cnpjInput.required = true;
-                    signin.classList.add('color-produtor'); // Aplicar ao contêiner
                 }
             }
 
@@ -131,10 +126,64 @@
             mostrarOpcao();
         });
 
+        // Função para realizar a requisição à API da BrasilAPI
+        async function obterNomeEmpresa(cnpj) {
+            const url = `https://brasilapi.com.br/api/cnpj/v1/${cnpj}`;
+            
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error('Erro na requisição');
+                }
+                const data = await response.json();
+                
+                if (data.error) {
+                    throw new Error(data.message);
+                }
+                
+                return data.razao_social; // Retorna o nome da empresa
+            } catch (error) {
+                console.error("Erro ao obter nome da empresa:", error);
+                return null;
+            }
+        }
+
+        // Função para buscar o nome da empresa e atualizar o DOM
+        function buscarNomeEmpresa() {
+            const cnpj = document.getElementById("cnpj").value.trim();
+            if (cnpj === "") {
+                alert("Por favor, digite um CNPJ válido.");
+                return;
+            }
+            document.getElementById("resultado").textContent = "Buscando...";
+            obterNomeEmpresa(cnpj)
+                .then(nome => {
+                    const resultado = document.getElementById("resultado");
+                    if (nome) {
+                        resultado.textContent = nome;
+                    } else {
+                        resultado.textContent = "Empresa não encontrada.";
+                    }
+                });
+        }
+
+        // Função para detectar quando o usuário termina de digitar
+        function debounce(func, delay) {
+            let debounceTimer;
+            return function() {
+                const context = this;
+                const args = arguments;
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => func.apply(context, args), delay);
+            };
+        }
+
+        document.getElementById("cnpj").addEventListener("input", debounce(buscarNomeEmpresa, 1000));
+
         $(document).ready(function() {
             $('#cel').mask('(00) 00000-0000'); // Máscara para números de celular brasileiros
             $('#cpf').mask('000.000.000-00', { reverse: true }); // Máscara para CPF
-            $('#cnpj').mask('00.000.000/0000-00', { reverse: true }); // Máscara para CNPJ
+            $('#cnpj').mask('00.000.0000000-00', { reverse: true }); // Máscara para CNPJ
         });
     </script>
 </body>

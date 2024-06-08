@@ -61,7 +61,7 @@ select{
     text-align: center;
 }
 label{
-    color: #f0f0f0;
+    color: #ecd182;
     font-weight: 700;
     margin-top: 10px
 }
@@ -139,6 +139,9 @@ p {
     display: flex;
     flex-direction: column;
 }
+#cnpj, #cpf{
+    text-align: center;
+}
 .Field input{
     margin-top: 1%;
 }
@@ -156,27 +159,7 @@ p {
     font-size: 12pt;
     color: #7f7f7f;
 }
-.color-musico h2,
-.color-musico label {
-    color: blue;
-}
-.color-produtor h2,
-.color-produtor label {
-    color: green;
-}
-.color-am h2,
-.color-am label{
-    color: red;
-}
-.color-musico input[type="submit"]:hover {
-    background-color: blue;
-}
-.color-produtor input[type="submit"]:hover {
-    background-color: green;
-}
-.color-am input[type="submit"]:hover {
-    background-color: red;
-}
+
 @media only screen and (max-width:950px){
     .card-login{
         width: 85%;
