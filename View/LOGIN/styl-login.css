@@ -127,7 +127,7 @@ body * {
     cursor: pointer;
     box-shadow: 0px 10px 40px -12px #000;
 }
-.card-bttn input[type="submit"]:hover {
+.card-bttn button[type="button"]:hover {
     background-color: #ecd182;
 }
 .bttn-signin{
