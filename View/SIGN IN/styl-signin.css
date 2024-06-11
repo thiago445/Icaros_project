@@ -145,14 +145,20 @@ p {
 .Field input{
     margin-top: 1%;
 }
-.signin input[type="submit"] {
+.right-signin button{
+    text-align: center;
+    height: 5vh;
+    width: 12vw;
+    outline: none;
     font-weight: 800;
+    border-radius: 7px;
+    margin-top: 3%;
     background-color: #f9f9f9;
     color: #0f0f0f;
     cursor: pointer;
 }
-.signin input[type="submit"]:hover {
-    background-color: #9f9f9f;
+.right-signin button[type="submit"]:hover {
+    background-color: #ecd182;
 }
 .hiperlink{
     text-align: center;
@@ -160,47 +166,183 @@ p {
     color: #7f7f7f;
 }
 
-@media only screen and (max-width:950px){
-    .card-login{
-        width: 85%;
-    }
-    .left-login-image{
-        width: 25vw;
-        height: 25vh;
-    }
-    .left-login{
-        width: 100%;
-        height: auto;
-    }
-    .right-login{
-        width: 100%
-    }
-    .card-login{
-        width: 90%;
-    }
-}
+@media screen and (max-width: 1366px){
+    @import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
  
-@media only screen and (max-width: 600px){
-    .main-login{
+    body * {
+        box-sizing: border-box;
+    }
+    body{
+        margin: 0px;
+        font-family: 'roboto', sans-serif;
+        overflow: auto;
+    }
+    h1{
+        color: #f0f0f0;
+        font-size: 15pt;
+        text-align: center;
+    }
+    img{
+        width: 15vw;
+        height: 25vh;
+        cursor: pointer;
+    }
+    p {
+        font-weight: 700;
+        color: #f9f9f9;
+    }
+    .signin{
+        gap: 15%;
+        overflow: auto;
+        background: #0f0f0f;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .left-signin{
+        width: 25vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         flex-direction: column;
     }
-    .left-login > h1{
-        display: none;
+    .right-signin{
+        width: 25vw;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
-    .left-login{
-        width: 100%;
+    .right-signin form{
         height: auto;
+        width: 20vw;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 3% 0px;
+        background: #1f1f1f;
+        border-radius: 20px;
+        box-shadow: 0px 10px 40px;
     }
-    .right-login{
+    .right-signin h2{
+        color: #ecd182;
+        font-weight: 800;
+        font-size: 15pt;
+        margin: 0;
+    }
+    .right-signin label{
+        color: #ecd182;
+        font-size: 10pt;
+        font-weight: 700;
+        margin-top: 3%;
+    }
+    .right-signin input[type="text"],
+    input[type="email"],input[type="password"],
+    input[type="date"],input[type="tel"]{
+        height: 0.1vh;
+        width: 12vw;
+        border: none;
+        border-radius: 10px;
+        background: #2f2f2f;
+        color: #f0f0f0;
+        font-size: 10pt;
+        box-shadow: 0px 10px 40px #1f1f1f;
+        outline: none;
+        box-sizing: content-box;
+        margin-top: 4%;
+    }
+    .right-signin button{
+        text-align: center;
+        height: 5vh;
+        width: 12vw;
+        outline: none;
+        font-weight: 800;
+        border-radius: 7px;
+        margin-top: 3%;
+        background-color: #f9f9f9;
+        color: #0f0f0f;
+        cursor: pointer;
+    }
+    .right-signin button[type="submit"]:hover {
+        background-color: #ecd182;
+    }
+    option{
+        background-color: #2f2f2f;
+        color: #f0f0f0;
+    }
+    .right-signin select{
+        font-size: 9pt;
+        outline: none;
+        align-self: center;
+        height: 3vh;
+        width: 5vw;
+        color: #f0f0f0;
+        background-color: #2f2f2f;
+        border-radius: 5px;
+        text-align: center;
+    }
+    .dropdown-signin{
+        margin-top: 0px;
+        display: flex;
         width: 100%;
-        height: auto;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
     }
-    .left-login-image{
-        width: 50vw;
-        margin-bottom: 50px;
+    .sexo-gender{
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-direction: row;
+        display: flex;
     }
-    .card-login{
-        width: 90%;
+    .select-sexo{
+        text-align: center;
+        flex-direction: column;
+        display: flex;
+        margin-right: 50px;
+    }
+    .select-genero{
+        text-align: center;
+        flex-direction: column;
+        display: flex;
+    }
+    .dropdown-gender{
+        margin-top: 0px;
+        display: flex;
+        width: 100%; 
+        align-items: center;
+        justify-content: center;
+    }
+    .select-sou{
+        gap: 3%;
+        margin-top: 5%;
+        margin-bottom: 1%;
+        text-align: center;
+        flex-direction: row;
+        display: flex;
+    }
+    .select-sou select{
+        width: 7vw;
+    }
+    .Field{
+        display: flex;
+        flex-direction: column;
+        font-size: 12pt;
+        margin: 0;
+    }
+    #cnpj, #cpf{
+        text-align: center;
+        margin-top: 0%
+    }
+    .hiperlink{
+        text-align: center;
+        font-size: 12pt;
+        color: #7f7f7f;
     }
 }
  
