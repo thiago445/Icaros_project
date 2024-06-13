@@ -1,5 +1,11 @@
 package com.Icaros.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class UserRegistrationDTO{
 
 
@@ -11,6 +17,7 @@ public class UserRegistrationDTO{
 	
 	private ProducerUser producerUser;
 
+	
 
 	public UserMusician getUserMusician() {
 		return userMusician;

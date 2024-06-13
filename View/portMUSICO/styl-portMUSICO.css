@@ -18,6 +18,42 @@ body {
     margin-bottom: 20px;
 }
 
+.informacoes{
+    color: #f0f0f0;
+    text-align: center;
+    font-size: 12pt;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #ECD182;
+    margin-top: 2px;
+}
+
+
+input[type="text"] ,
+input[type="email"],input[type="password"],
+input[type="date"],input[type="tel"]{
+    height: 5.0vh;
+    width: 12vw;
+    border: none;
+    border-radius: 10px;
+    background: #2f2f2f;
+    color: #f0f0f0;
+    font-size: 10pt;
+    box-shadow: 0px 10px 40px #1f1f1f;
+    outline: none;
+    box-sizing: content-box;
+    margin-top: 5%;
+}
+th, td {
+    padding: 10px 15px; /* Adiciona padding para separar os campos */
+    text-align: left;
+}
+
 .cabecalho img {
     width: 3vw;
     height: auto;
@@ -128,6 +164,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-bottom: 1%;
+    border-radius: 20px;
 }
 .descricao label{
     display: flex;

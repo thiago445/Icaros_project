@@ -4,12 +4,11 @@ import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -28,6 +27,13 @@ public class ProducerUser {
 	@Column(name = "NOME_FANTASIA")
 	private String fantasyName;
 
+	@Column(name = "COMENTARIO")
+	private String comment;
+
+	@Lob
+	@Column(name = "IMAGEM")
+	private byte[] image;
+
 	@OneToOne
 	@JoinColumn(name = "ID_USUARIO", referencedColumnName = "ID_USUARIO")
 	private User user;
@@ -36,12 +42,13 @@ public class ProducerUser {
 	}
 
 	// Constructor
-
-	public ProducerUser(Long id, String cnpj, String fantasyName, User user) {
+	public ProducerUser(Long id, String cnpj, String fantasyName, String comment, byte[] image, User user) {
 		super();
 		this.id = id;
 		this.cnpj = cnpj;
 		this.fantasyName = fantasyName;
+		this.comment = comment;
+		this.image = image;
 		this.user = user;
 	}
 
@@ -51,10 +58,11 @@ public class ProducerUser {
 		return id;
 	}
 
+	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 
 	public void setFantasyName(String fantasyName) {
 		this.fantasyName = fantasyName;
@@ -75,6 +83,16 @@ public class ProducerUser {
 	public void setFantasynName(String fantasyName) {
 		this.fantasyName = fantasyName;
 	}
+	
+	
+
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
 
 	public User getUser() {
 		return user;
@@ -82,6 +100,14 @@ public class ProducerUser {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 
 	// hashCode and equals
@@ -101,8 +127,7 @@ public class ProducerUser {
 			return false;
 		ProducerUser other = (ProducerUser) obj;
 		return Objects.equals(cnpj, other.cnpj) && Objects.equals(fantasyName, other.fantasyName)
-				&& Objects.equals(id, other.id)
-				&& Objects.equals(user, other.user);
+				&& Objects.equals(id, other.id) && Objects.equals(user, other.user);
 	}
 
 }

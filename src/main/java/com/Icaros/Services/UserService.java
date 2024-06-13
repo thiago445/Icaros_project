@@ -32,7 +32,6 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 
-
 	@Autowired
 	private UserLoverRepository userLoverRepository;
 
@@ -55,6 +54,30 @@ public class UserService {
 				() -> new ObjectNotFoundException("User not found! id: " + id + ",type: " + User.class.getName()));
 
 	}
+	
+	public User findByUserToken() {
+		UserSpringSecurity userSpringSecurity = this.authenticaded();
+		if (!Objects.nonNull(userSpringSecurity)) {
+			throw new AuthorizationExeption("Acesso negado!");
+		}
+		User obj = this.findById(userSpringSecurity.getId());
+
+		if (Objects.isNull(obj)) {
+
+			throw new ObjectNotFoundException("UserLover not found ");
+		}
+
+		return obj;
+	}
+	
+	
+
+	@Transactional
+	public User GetUserFlag() {
+		UserSpringSecurity userSpringSecurity = authenticaded();
+		User user = findById(userSpringSecurity.getId());
+		return user;
+	}
 
 	@Transactional
 	public User createUserWithLoginAndTipeUser(UserRegistrationDTO userRegistrationDTO) {
@@ -69,8 +92,6 @@ public class UserService {
 		// Login login = userRegistrationDTO.getLogin();
 		// login.setUser(createdUser);
 		// loginService.create(login);
-
-		
 
 		if (createdUser.getFlagUserTypeEnum().contains(1)) {
 			UserMusician userMusician = userRegistrationDTO.getUserMusician();
@@ -102,6 +123,15 @@ public class UserService {
 		newObj.setPassword(obj.getPassword());
 		return this.userRepository.save(newObj);
 	}
+	
+	@Transactional
+	public void update(User obj) {
+		User newObj = findById(obj.getId());
+		newObj.setName(obj.getName());
+		newObj.setMusicalGenre(obj.getMusicalGenre());
+		this.userRepository.save(newObj);
+	}
+
 
 	@Transactional
 	public void delete(Long id) {

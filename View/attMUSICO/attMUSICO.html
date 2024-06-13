@@ -5,33 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atualização de perfil - Musico</title>
     <link rel="stylesheet" href="../attMUSICO/styl-attMUSICO.css">
-    <link rel="icon" href="../ARCHIVES/image/Icaros-branco.png" type="image/x-icon" >    
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const userId = 1; // ID do usuário que você deseja carregar
-            
-            fetch(`/usuario/${userId}`)
-              .then(response => response.json())
-              .then(data => {
-                const usuario = data[0]; // Supondo que apenas um usuário seja retornado
-                document.getElementById('foto').value = usuario.foto;
-                document.getElementById('nome').value = usuario.nome;
-                document.getElementById('apresentacao').value = usuario.apresentacao;
-                document.getElementById('descricao').value = usuario.descricao;
-              })
-              .catch(error => console.error('Erro ao carregar usuário:', error));
-    
-            function atualizarPerfil(event) {
-                event.preventDefault(); // Impede o envio do formulário
-                
-                const formData = new FormData(event.target);
-                // Aqui você pode adicionar a lógica para enviar os dados do formulário para o backend
-                for (let pair of formData.entries()) {
-                    console.log(pair[0] + ': ' + pair[1]);
-                }
-            }
-        });
-    </script>
+    <link rel="icon" href="../ARCHIVES/image/Icaros-branco.png" type="image/x-icon">   
+    <script src="script.js" defer></script>
+  
     </head>
 <body>
     <div class="cabecalho">
@@ -44,10 +20,10 @@
             </div>
         </div>
         <div class="att-perfil">
-            <form class="form-perfil" id="perfilForm" method="PUT" onsubmit="atualizarPerfil(event)">
+            <form class="form-perfil" id="perfilForm" method="POST" enctype="multipart/form-data">
                 <input type="hidden" id="userId" name="userId" value="1">
                     <label for="foto">Foto de Perfil:</label>
-                    <input type="file" id="foto" name="foto" accept="image/*">
+                    <input type="file" id="imagem" name="imagem" accept="image/*">
                     <label for="nome">Nome:</label>
                     <input type="text" id="nome" name="nome" required>
                     <label for="opcoes">Genero musical:</label>
@@ -67,8 +43,7 @@
                         <option value="Disco">Disco</option>
                         <option value="Gospel">Gospel</option>
                     </select>
-                    <label for="apresentacao">Apresentação:</label>
-                    <input type="file" id="apresentacao" name="apresentacao" accept="video/*" required>
+                   
                     <label for="descricao">Descrição:</label>
                     <textarea id="descricao" name="descricao" required></textarea>
                     <input type="submit" value="Atualizar Perfil">

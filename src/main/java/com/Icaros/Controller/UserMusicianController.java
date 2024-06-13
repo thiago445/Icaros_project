@@ -16,46 +16,47 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.Icaros.Services.UserLoverService;
+import com.Icaros.Services.UserMusicianService;
 import com.Icaros.models.UserLover;
+import com.Icaros.models.UserMusician;
 import com.Icaros.models.UserRegistrationDTO;
 
 @RestController
-@RequestMapping("/user/lover")
-public class UserLoverController {
+@RequestMapping("/user/musician")
+public class UserMusicianController {
 
 	@Autowired
-	private UserLoverService userLoverService;
+	private UserMusicianService userMusicianService;
 
 	@PostMapping
-	public ResponseEntity<UserLover> create(UserLover userLover) {
-		this.userLoverService.create(userLover);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(userLover.getId())
+	public ResponseEntity<UserMusician> create(UserMusician userMusician) {
+		this.userMusicianService.create(userMusician);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(userMusician.getId())
 				.toUri();
-		return ResponseEntity.created(uri).body(userLover);
+		return ResponseEntity.created(uri).body(userMusician);
 	}
 
 	@PostMapping("/upload")
 	public ResponseEntity<String> uploadUser(@RequestParam("image") MultipartFile image) {
 		try {
 			byte[] imageData = image.getBytes();
-			this.userLoverService.insertImage(imageData);
+			this.userMusicianService.insertImage(imageData);
 			return new ResponseEntity<>("image saved successfully", HttpStatus.OK);
 		} catch (IOException e) {
 			return new ResponseEntity<>("Error saving user", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
-	@GetMapping("/profileLover")
-	public ResponseEntity<UserLover> findByIdToken() {
-		UserLover UserLover = this.userLoverService.findByUserToken();
+	@GetMapping("/profileMusician")
+	public ResponseEntity<UserMusician> findByIdToken() {
+		UserMusician userMusician = this.userMusicianService.findByUserToken();
 
-		return ResponseEntity.ok(UserLover);
+		return ResponseEntity.ok(userMusician);
 	}
 
 	@PutMapping
 	public ResponseEntity<Void> update(@RequestBody UserRegistrationDTO userRegistrationDTO) {
-		this.userLoverService.putProfile(userRegistrationDTO);
+		this.userMusicianService.putProfile(userRegistrationDTO);
 		
 		return ResponseEntity.ok().body(null);
 		

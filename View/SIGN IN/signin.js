@@ -48,6 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     alert('Erro ao obter nome da empresa. Tente novamente.');
                 });
             }
+                
+         
+            
         });
     } else {
         console.error('Form with ID "CadastroForm" not found.');
@@ -119,10 +122,10 @@ document.addEventListener('DOMContentLoaded', function() {
         cpfInput.required = false;
         cnpjInput.required = false;
 
-        if (select.value === 'musico' || select.value === 'AM') {
+        if (select.value == 1 || select.value == 2) {
             cpfField.style.display = 'block';
             cpfInput.required = true;
-        } else if (select.value === 'produtor') {
+        } else if (select.value == 3) {
             cnpjField.style.display = 'block';
             cnpjInput.required = true;
         }

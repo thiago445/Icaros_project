@@ -6,15 +6,16 @@
     <link rel="stylesheet" href="../portAM/styl-portAM.css">
     <title>Perfil AM</title>
     <link rel="icon" href="../ARCHIVES/image/Icaros-branco.png" type="image/x-icon" >
+    <script src="script.js"></script>
 </head>
 <body>
   <div class="cabecalho">
-    <a href="../index.html"><img src="/ARCHIVES/image/Icaros-branco.png"></a>
+    <a href="../index.html"><img src="../ARCHIVES/image/Icaros-branco.png" alt="Icaros Logo"></a>
 </div>
   <div class="perfil">
     <div class="foto-bttns">
       <div class="foto">
-        <img src="../ARCHIVES/image/card_gospel.png">
+        <img id="imagem" src="" alt="Imagem do Perfil"><br>
       </div>
         <div class="home-att">
           <div class="att">
@@ -25,18 +26,21 @@
     <div class="nome-email">
       <div class="nome">
         <label>Nome</label>
+        <input type="text" id="nome" name="nome">
         <p>
 
         </p>
       </div>
       <div class="email">
         <label>Email</label>
+        <input type="text" id="email" name="email">
         <p>
           
         </p>
       </div>
       <div class="estilo">
         <label>Estilo musical</label>
+        <input type="text" id="opcoes" name="opcoes">
         <p>
           
         </p>
@@ -45,6 +49,7 @@
     </div>
     <div class="descricao">
       <label>Descrição</label>
+      <textarea id="descricao" name="descricao"></textarea><br>
       <p>
         
       </p>
@@ -52,3 +57,5 @@
   </div>
 </body>
 </html>
+
+

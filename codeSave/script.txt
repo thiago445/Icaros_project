@@ -1,0 +1,81 @@
+@JsonIgnore
+	@OneToOne(mappedBy = "user")
+	private Login login;
+
+
+
+
+
+
+
+
+
+	public Login getLogin() {
+		return login;
+	}
+
+	public void setLogin(Login login) {
+		this.login = login;
+	}
+
+				&& Objects.equals(id, other.id) && Objects.equals(login, other.login)
+
+
+
+
+
+Table: tb_usuario
+Columns:
+ID_USUARIO int(11) AI PK 
+NOME varchar(50) 
+EMAIL varchar(100) 
+SENHA varchar(255) 
+sexo enum('F','M','P') 
+flag_tipo_usuario int(1) 
+DATA_NASC date 
+TELEFONE varchar(15) 
+GENERO_MUSICAL enum('Rock','Sertanejo','Pop','Hip_Hop','Jazz','Blues','Classical','Electronic_Dance_Music','Country','Reggae','Reggaeton','Soul','Funk','Disco','Gospel','Todos')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const userId = 1; // ID do usuário que você deseja carregar
+            
+            fetch(`/usuario/${userId}`)
+              .then(response => response.json())
+              .then(data => {
+                const usuario = data[0]; // Supondo que apenas um usuário seja retornado
+                document.getElementById('foto').value = usuario.foto;
+                document.getElementById('nome').value = usuario.nome;
+                document.getElementById('apresentacao').value = usuario.apresentacao;
+                document.getElementById('descricao').value = usuario.descricao;
+              })
+              .catch(error => console.error('Erro ao carregar usuário:', error));
+    
+            function atualizarPerfil(event) {
+                event.preventDefault(); // Impede o envio do formulário
+                
+                const formData = new FormData(event.target);
+                // Aqui você pode adicionar a lógica para enviar os dados do formulário para o backend
+                for (let pair of formData.entries()) {
+                    console.log(pair[0] + ': ' + pair[1]);
+                }
+            }
+        });
+    </script>
+
+ 
