@@ -61,7 +61,7 @@ public class JWTUtil {
 	private final Map<String, String> tokenStorage = new HashMap<>();
     private final SecureRandom random = new SecureRandom();
 	
-	public String generateToken(String email) {
+	public String generateTokenEmail(String email) {
         String token = String.format("%04d", random.nextInt(10000));
         tokenStorage.put(email, token);
         return token;

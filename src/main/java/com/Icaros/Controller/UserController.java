@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.Icaros.Mail.EmailRequest;
+import com.Icaros.Mail.EmailService;
 import com.Icaros.Security.JWTUtil;
-import com.Icaros.Services.EmailService;
 import com.Icaros.Services.UserService;
 import com.Icaros.models.User;
 import com.Icaros.models.UserRegistrationDTO;
@@ -58,12 +59,21 @@ public class UserController {
 	}
 
 	@PostMapping("/sendToken")
-	public ResponseEntity<String> sendToken(String email) 
+	public ResponseEntity<String> sendToken(@RequestBody EmailRequest emailRequest) 
 	{
-		String token = jwtUtil.generateToken(email);
-		emailService.sendEmail(email, "Seu token de verificação", "Seu token de verificação é: " + token);
-		return ResponseEntity.ok("Token enviado para " + email);
-	}
+		String email = emailRequest.getEmail();
+        if (email == null || email.isEmpty()) {
+            return ResponseEntity.badRequest().body("Email não pode ser nulo ou vazio");
+        }
+
+        String token = jwtUtil.generateTokenEmail(email);
+        String subject = "Seu token de verificação";
+        String text = "Seu token de verificação é: " + token;
+
+        emailService.sendEmail(email, subject, text);
+        return ResponseEntity.ok("Token enviado para " + email);
+    }
+	
 
 	@PostMapping("/verifyToken")
 	public ResponseEntity<String> verifyToken(@RequestParam String email, @RequestParam String token) {

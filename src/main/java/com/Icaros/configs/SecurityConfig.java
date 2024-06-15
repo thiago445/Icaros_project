@@ -37,7 +37,7 @@ public class SecurityConfig {
 
 	private static final String[] PUBLIC_MATCHERS = { "/" };
 
-	private static final String[] PUBLIC_MATCHERS_POST = { "/user/tipe", "/login"};
+	private static final String[] PUBLIC_MATCHERS_POST = { "/user/tipe", "/login" , "/user/sendToken"};
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
